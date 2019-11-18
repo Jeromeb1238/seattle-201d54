@@ -11,10 +11,13 @@ function populateForm() {
 
   //TODO: Add an <option> tag inside the form's select for each product
   var selectElement = document.getElementById('items');
-  for (var i in Product.allProducts) {
-
+  for (var i = 0; i < Product.allProducts.length; i++) {
+    var optionElement = document.createElement('option');
+    optionElement.setAttribute('value',Product.allProducts[i].name);
+    var optionProductName = document.textContent(Product.allProducts[i].name);
+    optionElement.textContent = optionProductName;
+    selectElement.append(optionElement);
   }
-
 }
 
 // When someone submits the form, we need to add the selected item to the cart
